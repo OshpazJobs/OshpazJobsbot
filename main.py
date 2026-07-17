@@ -3,7 +3,7 @@ from aiogram.filters import CommandStart
 from aiogram.types import Message
 import asyncio
 
-TOKEN = "BU_YERGA_BOT_TOKENINGIZ"
+TOKEN = "8690679194:AAFf-JRVrL4mx6ulvkQNqJgesZY6vU-Zc_8"
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
