@@ -1,22 +1,20 @@
-from aiogram import Bot, Dispatcher
-from aiogram.filters import CommandStart
-from aiogram.types import Message
 import asyncio
 
-TOKEN = "8690679194:AAFf-JRVrL4mx6ulvkQNqJgesZY6vU-Zc_8"
+from aiogram import Bot, Dispatcher
 
-bot = Bot(token=TOKEN)
-dp = Dispatcher()
+from config import BOT_TOKEN
+from handlers import start, check
 
-@dp.message(CommandStart())
-async def start(message: Message):
-    await message.answer(
-        "👋 Assalomu alaykum!\n\n"
-        "OshpazJobs botiga xush kelibsiz! 👨‍🍳"
-    )
 
 async def main():
+    bot = Bot(token=BOT_TOKEN)
+    dp = Dispatcher()
+
+    dp.include_router(start.router)
+    dp.include_router(check.router)
+
     await dp.start_polling(bot)
+
 
 if __name__ == "__main__":
     asyncio.run(main())
